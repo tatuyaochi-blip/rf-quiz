@@ -12,7 +12,8 @@
       "s-params",
       "rf-circuits",
       "antenna",
-      "microwave"
+      "microwave",
+      "measurement"
     ]
   },
   {
@@ -28,7 +29,8 @@
       "filters-oscillators",
       "modulation",
       "systems",
-      "radar"
+      "radar",
+      "power-amp"
     ]
   }
 ]
