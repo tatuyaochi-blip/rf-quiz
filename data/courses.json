@@ -7,9 +7,9 @@
       "zh-hant": "射頻基礎"
     },
     "desc": {
-      "ja": "伝送線路と整合、Sパラメータ、整合回路の設計、雑音とひずみ、アンテナ、マイクロ波部品と測定まで、高周波回路を扱うための基本を順に学びます。RFの仕事や無線の資格の勉強を始める人の最初の一歩におすすめです。",
-      "en": "Work step by step through the basics of handling RF circuits: transmission lines and matching, S-parameters, matching network design, noise and distortion, antennas, and microwave components and measurement. A recommended first step for anyone starting RF work or studying for a radio license.",
-      "zh-hant": "依序學習處理射頻電路所需的基礎：傳輸線與匹配、S參數、匹配電路的設計、雜訊與失真、天線，以及微波元件與量測。推薦給剛開始從事射頻工作或準備無線電證照考試的人作為第一步。"
+      "ja": "伝送線路と整合、Sパラメータ、整合回路の設計、雑音とひずみ、アンテナ、マイクロ波部品と測定、近接結合とワイヤレス給電まで、高周波回路を扱うための基本を順に学びます。RFの仕事や無線の資格の勉強を始める人の最初の一歩におすすめです。",
+      "en": "Work step by step through the basics of handling RF circuits: transmission lines and matching, S-parameters, matching network design, noise and distortion, antennas, microwave components and measurement, and near-field coupling and wireless power transfer. A recommended first step for anyone starting RF work or studying for a radio license.",
+      "zh-hant": "依序學習處理射頻電路所需的基礎：傳輸線與匹配、S參數、匹配電路的設計、雜訊與失真、天線、微波元件與量測，以及近場耦合與無線電力傳輸。推薦給剛開始從事射頻工作或準備無線電證照考試的人作為第一步。"
     },
     "steps": [
       "transmission-line",
@@ -18,7 +18,8 @@
       "rf-circuits",
       "antenna",
       "microwave",
-      "measurement"
+      "measurement",
+      "wireless-power"
     ]
   },
   {
@@ -29,9 +30,9 @@
       "zh-hant": "無線系統設計"
     },
     "desc": {
-      "ja": "受信機の雑音とひずみ、受信機の構成、フィルタとPLL、変復調とフェージング、OFDMとMIMO、電波伝搬、回線設計と周波数の選び方から、レーダー、アレーアンテナ、電力増幅器へと進み、無線機の全体を組み立てる考え方を身につけます。",
-      "en": "Move from receiver noise and distortion, receiver architectures, filters and PLLs, modulation and fading, OFDM and MIMO, radio-wave propagation, and link budgets and frequency choice on to radar, array antennas and power amplifiers, and learn how to put together a complete radio system.",
-      "zh-hant": "從接收機的雜訊與失真、接收機架構、濾波器與PLL、調變解調與衰落、OFDM與MIMO、電波傳播、鏈路預算與頻率的選擇，進而到雷達、陣列天線與功率放大器，學會組裝整部無線電設備的思考方式。"
+      "ja": "受信機の雑音とひずみ、受信機の構成、フィルタとPLL、変復調とフェージング、OFDMとMIMO、電波伝搬、回線設計と周波数の選び方から、レーダー、アレーアンテナ、電力増幅器、衛星通信へと進み、無線機の全体を組み立てる考え方を身につけます。",
+      "en": "Move from receiver noise and distortion, receiver architectures, filters and PLLs, modulation and fading, OFDM and MIMO, radio-wave propagation, and link budgets and frequency choice on to radar, array antennas, power amplifiers and satellite communications, and learn how to put together a complete radio system.",
+      "zh-hant": "從接收機的雜訊與失真、接收機架構、濾波器與PLL、調變解調與衰落、OFDM與MIMO、電波傳播、鏈路預算與頻率的選擇，進而到雷達、陣列天線、功率放大器與衛星通訊，學會組裝整部無線電設備的思考方式。"
     },
     "steps": [
       "rf-circuits",
@@ -44,7 +45,8 @@
       "systems",
       "radar",
       "phased-array",
-      "power-amp"
+      "power-amp",
+      "satellite"
     ]
   }
 ]
