@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "射頻與無線工程",
+    "groups": { "lines": "傳輸線與網路", "circuits": "射頻電路", "radio": "電波與天線", "systems": "高速傳輸與系統" }
+  }
+}
