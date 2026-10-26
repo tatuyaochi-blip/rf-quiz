@@ -11,7 +11,8 @@
       "transmission-line",
       "s-params",
       "rf-circuits",
-      "antenna"
+      "antenna",
+      "microwave"
     ]
   },
   {
@@ -26,7 +27,8 @@
       "rf-circuits",
       "filters-oscillators",
       "modulation",
-      "systems"
+      "systems",
+      "radar"
     ]
   }
 ]
