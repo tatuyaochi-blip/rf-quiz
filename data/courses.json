@@ -25,15 +25,17 @@
       "en": "Radio system design"
     },
     "desc": {
-      "ja": "受信機の雑音とひずみ、フィルタとPLL、変復調、回線設計と周波数の選び方へと進み、無線機の全体を組み立てる考え方を身につけます。",
-      "en": "Move from receiver noise and distortion through filters and PLLs, modulation and demodulation, to link budgets and frequency choice, and learn how to put together a complete radio."
+      "ja": "受信機の雑音とひずみ、フィルタとPLL、変復調とフェージング、回線設計と周波数の選び方から、レーダー、アレーアンテナ、電力増幅器へと進み、無線機の全体を組み立てる考え方を身につけます。",
+      "en": "Move from receiver noise and distortion, filters and PLLs, modulation and fading, and link budgets and frequency choice on to radar, array antennas and power amplifiers, and learn how to put together a complete radio system."
     },
     "steps": [
       "rf-circuits",
       "filters-oscillators",
       "modulation",
+      "fading",
       "systems",
       "radar",
+      "phased-array",
       "power-amp"
     ]
   }
