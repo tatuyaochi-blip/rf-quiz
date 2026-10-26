@@ -1,0 +1,296 @@
+{
+  "id": "lmatch",
+  "order": 5,
+  "slug": "l-network-matching-calculator",
+  "cats": [
+    "matching",
+    "transmission-line"
+  ],
+  "cat": "matching",
+  "terms": [
+    "L型整合回路",
+    "整合回路",
+    "Q値",
+    "共役整合",
+    "π型整合回路",
+    "スミスチャート"
+  ],
+  "questions": [
+    "matching-002",
+    "matching-003",
+    "matching-004"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "lm-form",
+    "fields": [
+      {
+        "name": "f",
+        "value": 1000,
+        "attrs": "min=\"0.000001\" step=\"any\""
+      },
+      {
+        "name": "rs",
+        "value": 50,
+        "attrs": "min=\"0.001\" step=\"any\""
+      },
+      {
+        "name": "rl",
+        "value": 10,
+        "attrs": "min=\"0.001\" step=\"any\""
+      },
+      {
+        "name": "xl",
+        "value": 0,
+        "attrs": "step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "q",
+          "side"
+        ]
+      },
+      {
+        "heading": "sol1_heading",
+        "stats": [
+          "s1",
+          "p1",
+          "k1"
+        ]
+      },
+      {
+        "heading": "sol2_heading",
+        "stats": [
+          "s2",
+          "p2",
+          "k2"
+        ]
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "L型整合回路の設計",
+      "card": "負荷 R + jX と信号源抵抗から、2通りのL型整合回路の素子値とQを計算",
+      "title": "L型整合回路 計算ツール(インピーダンス整合・素子値L・C・Q)",
+      "description": "信号源の抵抗と負荷のインピーダンス R + jX を、直列と並列のリアクタンス1個ずつで整合させるL型整合回路を設計します。低域通過形・高域通過形の2通りの解について、周波数からインダクタンスと容量の値を求め、回路のQを出します。",
+      "h1": "L型整合回路の設計ツール",
+      "lead": "負荷のインピーダンスを、信号源の抵抗と等しく見せるL型整合回路の素子値を計算します。既定値は、周波数1 GHzで、50 Ωの信号源に10 Ωの抵抗の負荷を整合させる場合です。負荷にリアクタンスがあるときは X に入れます(誘導性が正、容量性が負)。",
+      "in_heading": "入力",
+      "f": "周波数 f (MHz)",
+      "rs": "信号源の抵抗 Rs (Ω)",
+      "rl": "負荷の抵抗成分 R (Ω)",
+      "xl": "負荷のリアクタンス成分 X (Ω)",
+      "out_heading": "結果",
+      "q": "回路の Q",
+      "side": "並列の素子を置く側",
+      "sol1_heading": "解1",
+      "sol2_heading": "解2",
+      "s1": "直列の素子",
+      "p1": "並列の素子",
+      "k1": "回路の形",
+      "s2": "直列の素子",
+      "p2": "並列の素子",
+      "k2": "回路の形",
+      "js": {
+        "none": "不要",
+        "open": " (",
+        "close": ")",
+        "side_source": "信号源側(負荷の R が信号源の抵抗以下のため)",
+        "side_load": "負荷側(負荷の R が信号源の抵抗より大きいため)",
+        "lowpass": "低域通過形(直列L・並列C)",
+        "highpass": "高域通過形(直列C・並列L)",
+        "other": "低域・高域のどちらでもない形",
+        "single": "素子1個",
+        "direct": "整合回路は不要",
+        "side_none": "なし(負荷の R が信号源の抵抗と等しく、並列の素子は不要)",
+        "alt": "。並列の素子を負荷側に置く配置でも整合できます(その解は表示しません)"
+      },
+      "note": "素子は損失のない理想的なL・Cとし、信号源のインピーダンスは純抵抗とします。並列の素子を置く側は、負荷の抵抗成分 R と信号源の抵抗の大小で決めています。負荷にリアクタンスがあるときは、R が信号源の抵抗以下でも、並列の素子を負荷側に置く配置で整合できる場合がありますが、このツールはその解を出しません(そのときは「並列の素子を置く側」の欄に表示します)。整合がとれるのは入力した周波数だけで、実際の部品では寄生成分や損失(部品のQ)の影響で値の調整が必要になります。",
+      "practice": "インピーダンス整合回路の設計の問題を解く",
+      "related": "関連する用語",
+      "sections": [
+        {
+          "h": "L型整合回路の考え方",
+          "p": "L型整合回路は、直列のリアクタンス1個と並列(シャント)のリアクタンス1個で、2つの抵抗を整合させます。並列の素子を抵抗の大きい側に、直列の素子を抵抗の小さい側に置き、抵抗の小さい側に直列のリアクタンスを加えてアドミタンスに直したときのコンダクタンスを、大きい側の抵抗の逆数に合わせます。残ったサセプタンスは並列の素子で打ち消します。ここでの回路のQは、抵抗の小さい側の直列の枝のリアクタンスと抵抗の比 Xs/Rlow で(抵抗の大きい側の並列の枝の比 Rhigh/Xp も同じ値)、ノードのQとも呼ばれます。Q = √(Rhigh/Rlow − 1)、リアクタンスの大きさは Xs = Q·Rlow、Xp = Rhigh/Q です。既定値の50 Ωと10 Ωでは、Q = 2、Xs = 20 Ω、Xp = 25 Ω です。"
+        },
+        {
+          "h": "素子の値と2通りの解",
+          "p": "リアクタンスから素子の値へは、正(誘導性)なら L = X/(2πf)、負(容量性)なら C = 1/(2πf|X|) で換算します。既定値の1 GHzでは、直列Lが約3.18 nH、並列Cが約6.37 pFになります。L型には、直列L・並列Cの低域通過形と、直列C・並列Lの高域通過形の2通りの解があり、Qは同じです。低域通過形は高調波を減らせて直流も通すので、増幅器の出力によく使われ、同じ経路でバイアスを供給することもできます。高域通過形は直列のCが直流を止めるので、直流阻止のコンデンサを兼ねられます。"
+        },
+        {
+          "h": "負荷にリアクタンスがあるとき",
+          "p": "負荷の抵抗成分 R が信号源の抵抗以下のときは、負荷のリアクタンスXを直列の素子に含めて考え、直列側の合計を ±Q·R にします(直列の素子は ±Q·R − X)。このときQは X によらず √(Rs/R − 1) です。R が信号源の抵抗より大きいときは、負荷をアドミタンス G + jB に直し、並列の素子にBを含めて考えます。このとき回路のQは、負荷を並列の形に直した抵抗 Rp = (R² + X²)/R を使って √(Rp/Rs − 1) になります。R が信号源の抵抗以下でも Rp が信号源の抵抗より大きければ、並列の素子を負荷側に置く配置でも整合でき、Qと素子の値が変わります(どちらのQが小さいかは負荷によります)。このツールはその配置の解を出さないので、必要ならスミスチャートなどで比べてください。負荷のリアクタンスの大きさによっては、片方の解で直列と並列の素子が同じ種類になったり、素子が1個で済んだりします。"
+        },
+        {
+          "h": "Qと帯域幅",
+          "p": "L型ではQが抵抗の比だけで決まり、自由に選べません。Qが大きいほど整合のとれる周波数の範囲は狭くなり、部品の誤差や損失の影響も大きくなります。抵抗の比が大きく帯域が足りないときは、L型を2段以上つなぎ、中間の抵抗を両端の抵抗の相乗平均に近い値にすると各段のQを下げられます。逆に、L型より大きいQを選びたいときはπ型やT型を使います。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "信号源にもリアクタンスがあるときは?",
+          "a": "このツールは信号源を純抵抗としています。信号源が Zs = Rs + jXs で負荷が純抵抗なら、信号源と負荷の役割を入れ替え、負荷の抵抗を「信号源の抵抗」に、Zs を「負荷」に入れて設計し、できた回路を左右反転して使えます。損失のない回路では、一方の端で整合がとれていれば、もう一方の端から見ても共役整合になるためです。"
+        },
+        {
+          "q": "信号源と負荷の抵抗が同じときは?",
+          "a": "Q = 0 になり、並列の素子は不要です。負荷にリアクタンスがあれば、それを打ち消す直列の素子1個だけで整合します。"
+        },
+        {
+          "q": "部品の損失はどのくらい効きますか?",
+          "a": "部品のQ(無負荷Q)が回路のQに比べて十分大きければ損失は小さく済みます。回路のQが大きいほど素子を流れる電流や素子にかかる電圧が大きくなり、同じ部品でも損失が増えるので、抵抗の比が大きいときは多段にしてQを下げるのが有利です。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "L-network matching design",
+      "card": "Calculate element values and Q for the two L-network solutions from a load R + jX and source resistance",
+      "title": "L-Network Matching Calculator: Impedance Matching Element Values L, C and Q",
+      "description": "Design an L-network that matches a source resistance to a load impedance R + jX with one series and one shunt reactance. For the two solutions, low-pass and high-pass, the inductance and capacitance values are found from the frequency, and the Q of the network is given.",
+      "h1": "L-Network Matching Design Tool",
+      "lead": "Calculate the element values of an L-network that makes the load impedance look equal to the source resistance. The defaults match a 10 Ω resistive load to a 50 Ω source at 1 GHz. If the load has reactance, enter it as X (positive for inductive, negative for capacitive).",
+      "in_heading": "Inputs",
+      "f": "Frequency f (MHz)",
+      "rs": "Source resistance Rs (Ω)",
+      "rl": "Load resistance R (Ω)",
+      "xl": "Load reactance X (Ω)",
+      "out_heading": "Results",
+      "q": "Network Q",
+      "side": "Side for the shunt element",
+      "sol1_heading": "Solution 1",
+      "sol2_heading": "Solution 2",
+      "s1": "Series element",
+      "p1": "Shunt element",
+      "k1": "Network type",
+      "s2": "Series element",
+      "p2": "Shunt element",
+      "k2": "Network type",
+      "js": {
+        "none": "Not needed",
+        "open": " (",
+        "close": ")",
+        "side_source": "Source side (the load R is no larger than the source resistance)",
+        "side_load": "Load side (the load R is larger than the source resistance)",
+        "lowpass": "Low-pass (series L, shunt C)",
+        "highpass": "High-pass (series C, shunt L)",
+        "other": "Neither low-pass nor high-pass",
+        "single": "Single element",
+        "direct": "No matching network needed",
+        "side_none": "None (the load R equals the source resistance, so no shunt element is needed)",
+        "alt": "; the other arrangement, with the shunt element on the load side, can also match (not shown)"
+      },
+      "note": "The elements are taken as ideal lossless L and C, and the source impedance as a pure resistance. The side for the shunt element is chosen by comparing the load resistance R with the source resistance. When the load has reactance, the arrangement with the shunt element on the load side may also give a match even when R is no larger than the source resistance, but this tool does not give that solution (the “Side for the shunt element” field says so when it applies). The match holds only at the entered frequency, and with real components the values need adjusting for parasitics and loss (component Q).",
+      "practice": "Practice impedance matching network design questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "How an L-network works",
+          "p": "An L-network matches two resistances with one series reactance and one shunt reactance. The shunt element goes on the higher-resistance side and the series element on the lower-resistance side: adding series reactance to the lower resistance and converting to an admittance, the conductance is set equal to the reciprocal of the higher resistance, and the remaining susceptance is cancelled by the shunt element. The network Q here is the ratio of reactance to resistance in the series branch on the lower-resistance side, Xs/Rlow (the ratio Rhigh/Xp in the shunt branch on the higher-resistance side has the same value), and is also called the node Q. Q = √(Rhigh/Rlow − 1), and the reactance magnitudes are Xs = Q·Rlow and Xp = Rhigh/Q. For the default 50 Ω and 10 Ω, Q = 2, Xs = 20 Ω and Xp = 25 Ω."
+        },
+        {
+          "h": "Element values and the two solutions",
+          "p": "A reactance is converted to an element value with L = X/(2πf) if it is positive (inductive) and C = 1/(2πf|X|) if it is negative (capacitive). At the default 1 GHz, the series L is about 3.18 nH and the shunt C about 6.37 pF. An L-network has two solutions with the same Q: a low-pass form with series L and shunt C, and a high-pass form with series C and shunt L. The low-pass form reduces harmonics and passes DC, so it is often used at amplifier outputs and can also carry the bias along the same path. In the high-pass form the series C blocks DC, so it can double as a DC-blocking capacitor."
+        },
+        {
+          "h": "When the load has reactance",
+          "p": "When the load resistance R is no larger than the source resistance, the load reactance X is counted as part of the series element, and the total on the series side is made ±Q·R (the series element is ±Q·R − X); the Q is then √(Rs/R − 1) whatever X is. When R is larger than the source resistance, the load is converted to an admittance G + jB, and B is counted as part of the shunt element. The network Q is then √(Rp/Rs − 1), using the resistance Rp = (R² + X²)/R of the load in parallel form. Even when R is no larger than the source resistance, if Rp is larger than it, the arrangement with the shunt element on the load side can also match, with a different Q and element values (which Q is smaller depends on the load). This tool does not give the solutions for that arrangement, so compare them on a Smith chart or similar if needed. Depending on the size of the load reactance, one solution may have series and shunt elements of the same kind, or need only one element."
+        },
+        {
+          "h": "Q and bandwidth",
+          "p": "In an L-network the Q is fixed by the resistance ratio alone and cannot be chosen freely. The higher the Q, the narrower the range of frequencies over which the match holds, and the larger the effect of component tolerance and loss. When the resistance ratio is large and the bandwidth is insufficient, cascading two or more L-sections with intermediate resistances near the geometric mean of the end resistances lowers the Q of each section. Conversely, π- or T-networks are used when a Q higher than the L-network’s is wanted."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What if the source also has reactance?",
+          "a": "This tool treats the source as a pure resistance. If the source is Zs = Rs + jXs and the load is a pure resistance, swap the roles: enter the load resistance as the \"source resistance\" and Zs as the \"load\", design the network, and use it reversed. In a lossless network, a match at one port means a conjugate match seen from the other port as well."
+        },
+        {
+          "q": "What if the source and load resistances are equal?",
+          "a": "Q = 0 and no shunt element is needed. If the load has reactance, a single series element that cancels it gives the match."
+        },
+        {
+          "q": "How much does component loss matter?",
+          "a": "If the component Q (unloaded Q) is much larger than the network Q, the loss stays small. The higher the network Q, the larger the currents through and voltages across the elements, so the same components lose more; when the resistance ratio is large, using several sections to lower the Q is an advantage."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "L型匹配電路設計",
+      "card": "由負載 R + jX 與訊號源電阻，計算2種L型匹配電路的元件值與Q",
+      "title": "L型匹配電路計算工具（阻抗匹配、元件值L、C與Q）",
+      "description": "設計以串聯與並聯電抗各1個，把訊號源電阻與負載阻抗 R + jX 匹配的L型匹配電路。針對低通型與高通型2種解，由頻率求出電感與電容的值，並算出電路的Q。",
+      "h1": "L型匹配電路設計工具",
+      "lead": "計算使負載阻抗看起來等於訊號源電阻的L型匹配電路元件值。預設值是在頻率1 GHz下，把10 Ω的電阻負載匹配到50 Ω訊號源的情況。負載有電抗時請輸入 X（電感性為正、電容性為負）。",
+      "in_heading": "輸入",
+      "f": "頻率 f (MHz)",
+      "rs": "訊號源電阻 Rs (Ω)",
+      "rl": "負載的電阻成分 R (Ω)",
+      "xl": "負載的電抗成分 X (Ω)",
+      "out_heading": "結果",
+      "q": "電路的 Q",
+      "side": "並聯元件放置的一側",
+      "sol1_heading": "解1",
+      "sol2_heading": "解2",
+      "s1": "串聯元件",
+      "p1": "並聯元件",
+      "k1": "電路型式",
+      "s2": "串聯元件",
+      "p2": "並聯元件",
+      "k2": "電路型式",
+      "js": {
+        "none": "不需要",
+        "open": "（",
+        "close": "）",
+        "side_source": "訊號源側（負載的 R 不大於訊號源電阻）",
+        "side_load": "負載側（負載的 R 大於訊號源電阻）",
+        "lowpass": "低通型（串聯L、並聯C）",
+        "highpass": "高通型（串聯C、並聯L）",
+        "other": "既非低通也非高通的型式",
+        "single": "1個元件",
+        "direct": "不需要匹配電路",
+        "side_none": "無（負載的 R 等於訊號源電阻，不需要並聯元件）",
+        "alt": "；並聯元件放在負載側的另一種配置也能匹配（本工具不顯示該解）"
+      },
+      "note": "元件假設為無損耗的理想L與C，訊號源阻抗假設為純電阻。並聯元件放置的一側，由負載的電阻成分 R 與訊號源電阻的大小決定。負載有電抗時，即使 R 不大於訊號源電阻，把並聯元件放在負載側的配置有時也能匹配，但本工具不顯示該解（適用時會在「並聯元件放置的一側」欄中註明）。只有在輸入的頻率下才會匹配，實際元件因寄生成分與損耗（元件的Q）的影響，需要調整數值。",
+      "practice": "練習阻抗匹配電路設計題目",
+      "related": "相關名詞",
+      "sections": [
+        {
+          "h": "L型匹配電路的原理",
+          "p": "L型匹配電路以串聯電抗1個與並聯電抗1個，匹配2個電阻。並聯元件放在電阻大的一側，串聯元件放在電阻小的一側：在小電阻上加上串聯電抗並換算成導納時，使其電導等於大電阻的倒數，剩下的電納再以並聯元件抵消。這裡的電路Q，是電阻小的一側串聯支路的電抗與電阻之比 Xs/Rlow（電阻大的一側並聯支路之比 Rhigh/Xp 也是相同的值），也稱為節點Q。Q = √(Rhigh/Rlow − 1)，電抗的大小為 Xs = Q·Rlow、Xp = Rhigh/Q。以預設值50 Ω與10 Ω計算，Q = 2、Xs = 20 Ω、Xp = 25 Ω。"
+        },
+        {
+          "h": "元件值與2種解",
+          "p": "由電抗換算成元件值時，若為正（電感性）用 L = X/(2πf)，若為負（電容性）用 C = 1/(2πf|X|)。以預設值1 GHz計算，串聯L約為3.18 nH，並聯C約為6.37 pF。L型有串聯L、並聯C的低通型，與串聯C、並聯L的高通型2種解，兩者的Q相同。低通型能減少諧波且可通過直流，因此常用於放大器的輸出，也可經由同一路徑供給偏壓。高通型的串聯C會阻擋直流，可兼作隔斷直流的電容器。"
+        },
+        {
+          "h": "負載有電抗時",
+          "p": "負載的電阻成分 R 不大於訊號源電阻時，把負載的電抗X算進串聯元件，使串聯側的合計為 ±Q·R（串聯元件為 ±Q·R − X），此時Q與X無關，為 √(Rs/R − 1)。R 大於訊號源電阻時，把負載換算成導納 G + jB，把B算進並聯元件。此時電路的Q，要用負載換算成並聯形式的電阻 Rp = (R² + X²)/R，為 √(Rp/Rs − 1)。即使 R 不大於訊號源電阻，只要 Rp 大於訊號源電阻，把並聯元件放在負載側的配置也能匹配，Q與元件值會不同（哪一種的Q較小依負載而定）。本工具不顯示該配置的解，必要時請以史密斯圖等比較。依負載電抗的大小，有時其中一個解的串聯與並聯元件會是同一種類，或只需1個元件。"
+        },
+        {
+          "h": "Q與頻寬",
+          "p": "L型的Q只由電阻比決定，無法自由選擇。Q越大，能維持匹配的頻率範圍越窄，元件誤差與損耗的影響也越大。電阻比大而頻寬不足時，把L型串接2級以上，並使中間電阻接近兩端電阻的幾何平均值，可降低各級的Q。反之，想選擇比L型更大的Q時，則使用π型或T型。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "訊號源也有電抗時怎麼辦？",
+          "a": "本工具假設訊號源為純電阻。若訊號源為 Zs = Rs + jXs 而負載為純電阻，可把兩者角色互換：把負載電阻輸入為「訊號源電阻」、把Zs輸入為「負載」來設計，再將得到的電路左右反轉使用。這是因為在無損耗的電路中，只要一端匹配，從另一端看也會是共軛匹配。"
+        },
+        {
+          "q": "訊號源與負載的電阻相同時呢？",
+          "a": "Q = 0，不需要並聯元件。若負載有電抗，只要1個抵消它的串聯元件就能匹配。"
+        },
+        {
+          "q": "元件的損耗影響有多大？",
+          "a": "只要元件的Q（無載Q）比電路的Q大得多，損耗就很小。電路的Q越大，流過元件的電流與元件上的電壓越大，同樣的元件損耗也會增加，因此電阻比大時，做成多級來降低Q較為有利。"
+        }
+      ]
+    }
+  }
+}

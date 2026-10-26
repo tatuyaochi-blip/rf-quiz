@@ -12,7 +12,7 @@ function update() {
   const fspl = 20 * Math.log10(4 * Math.PI * d / lam);
   const pr = val('pt') + val('gt') + val('gr') - fspl - val('loss');
   out('lambda').textContent = si(lam, 'm', 4);
-  out('fspl').textContent = `${num(fspl, 4)} dB`;
+  out('fspl').textContent = `${num(fspl, 5)} dB`;
   out('pr').textContent = `${num(pr, 4)} dBm`;
   out('margin').textContent = `${num(pr - val('sens'), 4)} dB`;
   out('fresnel').textContent = si(Math.sqrt(lam * d / 4), 'm', 3);

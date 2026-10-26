@@ -1,0 +1,312 @@
+{
+  "id": "link",
+  "order": 6,
+  "slug": "link-budget-snr-calculator",
+  "cats": [
+    "systems",
+    "receivers",
+    "propagation"
+  ],
+  "cat": "systems",
+  "terms": [
+    "リンクマージン",
+    "EIRP",
+    "自由空間伝搬損失",
+    "熱雑音",
+    "雑音指数",
+    "受信感度",
+    "G/T"
+  ],
+  "questions": [
+    "systems-007",
+    "systems-008",
+    "receivers-002"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "lk-form",
+    "fields": [
+      {
+        "name": "pt",
+        "value": 20,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "lt",
+        "value": 1,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "gt",
+        "value": 15,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "f",
+        "value": 2400,
+        "attrs": "min=\"0.001\" step=\"any\""
+      },
+      {
+        "name": "d",
+        "value": 10,
+        "attrs": "min=\"0.000001\" step=\"any\""
+      },
+      {
+        "name": "lo",
+        "value": 3,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "gr",
+        "value": 15,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "lr",
+        "value": 1,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "nf",
+        "value": 5,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "bw",
+        "value": 20,
+        "attrs": "min=\"0.000001\" step=\"any\""
+      },
+      {
+        "name": "snr",
+        "value": 10,
+        "attrs": "step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "eirp",
+          "fspl",
+          "pr"
+        ]
+      },
+      {
+        "heading": "noise_heading",
+        "stats": [
+          "noise",
+          "cn",
+          "sens"
+        ]
+      },
+      {
+        "heading": "margin_heading",
+        "stats": [
+          "margin",
+          "dmax"
+        ]
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "回線設計(リンクバジェット)",
+      "card": "送信電力・利得・損失から受信電力を、雑音指数と帯域幅から雑音電力・S/N・マージンを計算",
+      "title": "回線設計(リンクバジェット)計算ツール(EIRP・受信電力・雑音電力・S/N・マージン)",
+      "description": "送信電力、アンテナ利得、送受信の給電線の損失、自由空間伝搬損失、その他の損失から受信電力を求め、受信機の雑音指数と帯域幅から雑音電力とS/Nを計算し、必要なS/Nに対するマージンを出します。",
+      "h1": "回線設計(リンクバジェット)計算ツール",
+      "lead": "見通しのある無線回線について、送信機から受信機までの電力と雑音をdBで足し引きし、S/Nとマージンを求めます。既定値は、2.4 GHzで10 km離れた2局が、送信電力20 dBm、利得15 dBiのアンテナどうしで通信し、給電線の損失が送受信とも1 dB、その他の損失が3 dB、受信機の雑音指数5 dB、帯域幅20 MHz、必要なS/Nが10 dBの場合です。",
+      "in_heading": "入力",
+      "pt": "送信電力 Pt (dBm)",
+      "lt": "送信側の給電線の損失 Lt (dB)",
+      "gt": "送信アンテナ利得 Gt (dBi)",
+      "f": "周波数 f (MHz)",
+      "d": "距離 d (km)",
+      "lo": "その他の損失 (dB)",
+      "gr": "受信アンテナ利得 Gr (dBi)",
+      "lr": "受信側の給電線の損失 Lr (dB)",
+      "nf": "受信機の雑音指数 NF (dB)",
+      "bw": "帯域幅 B (MHz)",
+      "snr": "必要な S/N (dB)",
+      "out_heading": "結果",
+      "eirp": "EIRP(等価等方放射電力)",
+      "fspl": "自由空間伝搬損失 FSPL",
+      "pr": "受信電力 Pr(受信機入力)",
+      "noise_heading": "雑音とS/N(基準温度290 K)",
+      "noise": "雑音電力 N(受信機入力換算)",
+      "cn": "S/N",
+      "sens": "受信感度(N + 必要なS/N)",
+      "margin_heading": "マージン",
+      "margin": "マージン(S/N − 必要なS/N)",
+      "dmax": "マージンが0 dBになる距離(自由空間)",
+      "note": "見通しのある自由空間を仮定しています。FSPL の式は、距離が波長より十分大きい(遠方界)ときのもので、d が波長の数倍以下では使えません。熱雑音は290 Kで −174 dBm/Hz(正確には約 −173.98)とし、アンテナの雑音温度も290 Kとみなしています。帯域幅は雑音帯域幅として扱います。フェージング・降雨・遮へいなどは「その他の損失」に入れるか、マージンで見込みます。",
+      "practice": "無線システムと周波数の問題を解く",
+      "related": "関連する用語",
+      "sections": [
+        {
+          "h": "回線設計の流れ",
+          "p": "回線設計(リンクバジェット)では、送信機から受信機までの利得と損失をdBで足し引きして、受信電力を求めます。まず送信側で、送信電力から給電線の損失を引き、アンテナ利得を足したものがEIRP(等価等方放射電力)で、EIRP = Pt − Lt + Gt です。既定値では 20 − 1 + 15 = 34 dBm です。"
+        },
+        {
+          "h": "受信電力",
+          "p": "受信機の入力での電力は Pr = EIRP − FSPL − L + Gr − Lr [dBm] です(Lはその他の損失)。自由空間伝搬損失は FSPL = 20·log10(4πd/λ) = 20·log10(d[km]) + 20·log10(f[MHz]) + 32.45 dB で、既定値の2.4 GHz・10 kmでは約120.05 dBです。受信電力は 34 − 120.05 − 3 + 15 − 1 ≈ −75.05 dBm になります。"
+        },
+        {
+          "h": "雑音電力とS/N",
+          "p": "受信機の入力に換算した雑音電力は、熱雑音 kTB に雑音指数を加えて N = −174 + 10·log10(B) + NF [dBm] です。既定値の帯域幅20 MHz(約73.01 dB)、NF 5 dBでは、N ≈ −95.99 dBm です。S/Nは受信電力と雑音電力の差で、−75.05 − (−95.99) ≈ 20.94 dB になります。帯域幅を広げると雑音電力が増えるので、同じ受信電力でもS/Nは下がります。"
+        },
+        {
+          "h": "マージン",
+          "p": "S/Nから復調に必要なS/Nを引いたものがマージンで、既定値では 20.94 − 10 ≈ 10.94 dB です。これは、受信電力から受信感度(雑音電力 + 必要なS/N ≈ −85.99 dBm)を引いたリンクマージンと同じ値です。自由空間では距離が2倍になるごとに損失が約6 dB増えるので、マージンが0 dBになる距離は d·10^(マージン/20) で、既定値では約35.2 kmです。実際の回線では、フェージングや降雨に備えてマージンを残します。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "受信側の給電線の損失は雑音にどう効きますか?",
+          "a": "このツールでは、信号を給電線の損失のあとの受信機の入力で評価しています。アンテナの雑音温度が290 Kなら、これはアンテナの端子で評価して雑音指数に給電線の損失を足すのと同じS/Nになります。衛星通信の受信のように空を向いたアンテナの雑音温度が低い場合は、G/Tを使って雑音温度で計算します。"
+        },
+        {
+          "q": "S/N と C/N、Eb/N0 の関係は?",
+          "a": "復調前の変調波の電力と雑音の比はC/Nとも呼ばれ、このツールのS/Nはそれにあたります。1ビットあたりのエネルギーで表すと Eb/N0 = C/N + 10·log10(B/Rb) [dB] で、Rbはビットレートです。必要なS/Nは、変調方式と誤り訂正、目標の誤り率で決まります。"
+        },
+        {
+          "q": "自由空間伝搬損失のツールとの違いは?",
+          "a": "自由空間伝搬損失のツールは、受信電力を受信感度と直接比べます。このツールは受信感度を雑音電力と必要なS/Nに分けて計算するので、帯域幅や雑音指数を変えたときのマージンの変化が分かります。受信感度を同じにすれば、マージンは同じ値になります。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Link budget",
+      "card": "Calculate received power from transmit power, gains and losses, and noise power, S/N and margin from noise figure and bandwidth",
+      "title": "Link Budget Calculator: EIRP, Received Power, Noise Power, S/N and Margin",
+      "description": "Find the received power from transmit power, antenna gains, transmit and receive feed line losses, free-space path loss and other losses, calculate the noise power and S/N from the receiver noise figure and bandwidth, and give the margin against the required S/N.",
+      "h1": "Link Budget Calculator",
+      "lead": "For a radio link with line of sight, add and subtract the power and noise from transmitter to receiver in dB to find the S/N and margin. The defaults are two stations 10 km apart at 2.4 GHz, communicating with 20 dBm of transmit power and 15 dBi antennas at each end, with 1 dB of feed line loss at each end, 3 dB of other losses, a receiver noise figure of 5 dB, a bandwidth of 20 MHz and a required S/N of 10 dB.",
+      "in_heading": "Inputs",
+      "pt": "Transmit power Pt (dBm)",
+      "lt": "Transmit feed line loss Lt (dB)",
+      "gt": "Transmit antenna gain Gt (dBi)",
+      "f": "Frequency f (MHz)",
+      "d": "Distance d (km)",
+      "lo": "Other losses (dB)",
+      "gr": "Receive antenna gain Gr (dBi)",
+      "lr": "Receive feed line loss Lr (dB)",
+      "nf": "Receiver noise figure NF (dB)",
+      "bw": "Bandwidth B (MHz)",
+      "snr": "Required S/N (dB)",
+      "out_heading": "Results",
+      "eirp": "EIRP (equivalent isotropically radiated power)",
+      "fspl": "Free-space path loss FSPL",
+      "pr": "Received power Pr (receiver input)",
+      "noise_heading": "Noise and S/N (reference temperature 290 K)",
+      "noise": "Noise power N (referred to receiver input)",
+      "cn": "S/N",
+      "sens": "Receiver sensitivity (N + required S/N)",
+      "margin_heading": "Margin",
+      "margin": "Margin (S/N − required S/N)",
+      "dmax": "Distance at which the margin is 0 dB (free space)",
+      "note": "Free space with line of sight is assumed. The FSPL formula holds when the distance is much larger than the wavelength (far field) and does not apply when d is only a few wavelengths or less. Thermal noise is taken as −174 dBm/Hz at 290 K (more precisely about −173.98), and the antenna noise temperature is also taken as 290 K. The bandwidth is treated as the noise bandwidth. Fading, rain, blockage and so on are entered under other losses or allowed for in the margin.",
+      "practice": "Practice radio systems and frequencies questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "How a link budget works",
+          "p": "A link budget finds the received power by adding and subtracting, in dB, the gains and losses from transmitter to receiver. On the transmit side, the transmit power minus the feed line loss plus the antenna gain is the EIRP (equivalent isotropically radiated power): EIRP = Pt − Lt + Gt. With the defaults it is 20 − 1 + 15 = 34 dBm."
+        },
+        {
+          "h": "Received power",
+          "p": "The power at the receiver input is Pr = EIRP − FSPL − L + Gr − Lr [dBm], where L is the other losses. The free-space path loss is FSPL = 20·log10(4πd/λ) = 20·log10(d[km]) + 20·log10(f[MHz]) + 32.45 dB, about 120.05 dB at the default 2.4 GHz and 10 km. The received power is 34 − 120.05 − 3 + 15 − 1 ≈ −75.05 dBm."
+        },
+        {
+          "h": "Noise power and S/N",
+          "p": "The noise power referred to the receiver input is the thermal noise kTB plus the noise figure: N = −174 + 10·log10(B) + NF [dBm]. With the default bandwidth of 20 MHz (about 73.01 dB) and NF of 5 dB, N ≈ −95.99 dBm. The S/N is the difference between received power and noise power, −75.05 − (−95.99) ≈ 20.94 dB. Widening the bandwidth raises the noise power, so the S/N falls for the same received power."
+        },
+        {
+          "h": "Margin",
+          "p": "The S/N minus the S/N required for demodulation is the margin, 20.94 − 10 ≈ 10.94 dB with the defaults. This equals the link margin found by subtracting the receiver sensitivity (noise power + required S/N ≈ −85.99 dBm) from the received power. In free space the loss rises by about 6 dB each time the distance doubles, so the distance at which the margin reaches 0 dB is d·10^(margin/20), about 35.2 km with the defaults. Real links keep a margin for fading and rain."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How does the receive feed line loss affect the noise?",
+          "a": "This tool evaluates the signal at the receiver input, after the feed line loss. If the antenna noise temperature is 290 K, this gives the same S/N as evaluating at the antenna terminals and adding the feed line loss to the noise figure. When an antenna pointing at the sky has a low noise temperature, as in satellite reception, the calculation uses noise temperatures and G/T."
+        },
+        {
+          "q": "How are S/N, C/N and Eb/N0 related?",
+          "a": "The ratio of modulated carrier power to noise before demodulation is also called C/N, and the S/N in this tool corresponds to it. In terms of energy per bit, Eb/N0 = C/N + 10·log10(B/Rb) [dB], where Rb is the bit rate. The required S/N is set by the modulation, the error correction and the target error rate."
+        },
+        {
+          "q": "How does this differ from the free-space path loss tool?",
+          "a": "The free-space path loss tool compares the received power directly with the receiver sensitivity. This tool splits the sensitivity into the noise power and the required S/N, so it shows how the margin changes with bandwidth and noise figure. With the same sensitivity, the margin is the same."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "鏈路設計（鏈路預算）",
+      "card": "由發射功率、增益與損耗計算接收功率，並由雜訊指數與頻寬計算雜訊功率、S/N與餘裕",
+      "title": "鏈路設計（鏈路預算）計算工具（EIRP、接收功率、雜訊功率、S/N、餘裕）",
+      "description": "由發射功率、天線增益、收發兩端的饋線損耗、自由空間路徑損耗與其他損耗求出接收功率，再由接收機的雜訊指數與頻寬計算雜訊功率與S/N，並算出相對於所需S/N的餘裕。",
+      "h1": "鏈路設計（鏈路預算）計算工具",
+      "lead": "針對視距可通的無線鏈路，以dB加減從發射機到接收機的功率與雜訊，求出S/N與餘裕。預設值是：在2.4 GHz下相距10 km的2站，以發射功率20 dBm、增益15 dBi的天線互相通訊，收發兩端的饋線損耗各為1 dB，其他損耗3 dB，接收機雜訊指數5 dB，頻寬20 MHz，所需S/N為10 dB的情況。",
+      "in_heading": "輸入",
+      "pt": "發射功率 Pt (dBm)",
+      "lt": "發射端饋線損耗 Lt (dB)",
+      "gt": "發射天線增益 Gt (dBi)",
+      "f": "頻率 f (MHz)",
+      "d": "距離 d (km)",
+      "lo": "其他損耗 (dB)",
+      "gr": "接收天線增益 Gr (dBi)",
+      "lr": "接收端饋線損耗 Lr (dB)",
+      "nf": "接收機雜訊指數 NF (dB)",
+      "bw": "頻寬 B (MHz)",
+      "snr": "所需 S/N (dB)",
+      "out_heading": "結果",
+      "eirp": "EIRP（等效全向輻射功率）",
+      "fspl": "自由空間路徑損耗 FSPL",
+      "pr": "接收功率 Pr（接收機輸入）",
+      "noise_heading": "雜訊與S/N（基準溫度290 K）",
+      "noise": "雜訊功率 N（接收機輸入端等效）",
+      "cn": "S/N",
+      "sens": "接收靈敏度（N + 所需S/N）",
+      "margin_heading": "餘裕",
+      "margin": "餘裕（S/N − 所需S/N）",
+      "dmax": "餘裕為0 dB的距離（自由空間）",
+      "note": "假設為視距可通的自由空間。FSPL的公式適用於距離遠大於波長（遠場）的情況，d 只有波長的數倍以下時不適用。熱雜訊取290 K下的 −174 dBm/Hz（精確值約為 −173.98），天線的雜訊溫度也視為290 K。頻寬視為雜訊頻寬。衰落、降雨、遮蔽等請輸入「其他損耗」，或以餘裕估計。",
+      "practice": "練習無線系統與頻率題目",
+      "related": "相關名詞",
+      "sections": [
+        {
+          "h": "鏈路設計的流程",
+          "p": "鏈路設計（鏈路預算）是以dB加減從發射機到接收機的增益與損耗，求出接收功率。首先在發射端，發射功率減去饋線損耗、再加上天線增益，就是EIRP（等效全向輻射功率），EIRP = Pt − Lt + Gt。以預設值計算為 20 − 1 + 15 = 34 dBm。"
+        },
+        {
+          "h": "接收功率",
+          "p": "接收機輸入端的功率為 Pr = EIRP − FSPL − L + Gr − Lr [dBm]（L為其他損耗）。自由空間路徑損耗為 FSPL = 20·log10(4πd/λ) = 20·log10(d[km]) + 20·log10(f[MHz]) + 32.45 dB，以預設值2.4 GHz、10 km計算約為120.05 dB。接收功率為 34 − 120.05 − 3 + 15 − 1 ≈ −75.05 dBm。"
+        },
+        {
+          "h": "雜訊功率與S/N",
+          "p": "換算到接收機輸入端的雜訊功率，是在熱雜訊 kTB 上加上雜訊指數，N = −174 + 10·log10(B) + NF [dBm]。以預設值頻寬20 MHz（約73.01 dB）、NF 5 dB計算，N ≈ −95.99 dBm。S/N是接收功率與雜訊功率之差，為 −75.05 − (−95.99) ≈ 20.94 dB。頻寬加大時雜訊功率增加，因此即使接收功率相同，S/N也會下降。"
+        },
+        {
+          "h": "餘裕",
+          "p": "S/N減去解調所需的S/N就是餘裕，以預設值計算為 20.94 − 10 ≈ 10.94 dB。這與接收功率減去接收靈敏度（雜訊功率 + 所需S/N ≈ −85.99 dBm）所得的鏈路餘裕相同。在自由空間中距離每變為2倍損耗約增加6 dB，因此餘裕變為0 dB的距離為 d·10^(餘裕/20)，以預設值計算約為35.2 km。實際的鏈路會為衰落與降雨保留餘裕。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "接收端饋線損耗對雜訊有什麼影響？",
+          "a": "本工具在經過饋線損耗之後的接收機輸入端評估訊號。若天線的雜訊溫度為290 K，這與在天線端子評估、並把饋線損耗加到雜訊指數上所得的S/N相同。像衛星接收那樣朝向天空的天線雜訊溫度很低時，則改用雜訊溫度與G/T計算。"
+        },
+        {
+          "q": "S/N、C/N與Eb/N0有什麼關係？",
+          "a": "解調前調變波功率與雜訊之比也稱為C/N，本工具的S/N即相當於此。以每位元能量表示時，Eb/N0 = C/N + 10·log10(B/Rb) [dB]，Rb為位元率。所需S/N由調變方式、錯誤更正與目標錯誤率決定。"
+        },
+        {
+          "q": "與自由空間路徑損耗工具有什麼不同？",
+          "a": "自由空間路徑損耗工具是把接收功率直接與接收靈敏度比較。本工具把接收靈敏度分成雜訊功率與所需S/N計算，因此可看出改變頻寬或雜訊指數時餘裕如何變化。只要接收靈敏度相同，餘裕就相同。"
+        }
+      ]
+    }
+  }
+}
