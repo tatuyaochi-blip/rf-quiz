@@ -2,7 +2,8 @@
   "baseUrl": "https://tatuyaochi-blip.github.io/rf-quiz/",
   "siteName": {
     "ja": "高周波教室",
-    "en": "RF Room"
+    "en": "RF Room",
+    "zh-hant": "射頻教室"
   },
   "languages": [
     {
@@ -60,6 +61,19 @@
       "hero": "Learn RF and wireless engineering with quick quizzes",
       "hero_lead": "From transmission lines and the Smith chart to noise figure, antennas and modulation, with an explanation for every question.",
       "tools_lead": "Free browser calculators for everyday RF work: dBm and power conversion, VSWR and reflection coefficient, cascaded noise figure, free-space path loss and more."
+    },
+    "zh-hant": {
+      "subject": "射頻與無線工程",
+      "subject_title": "射頻與無線工程",
+      "site": "射頻教室",
+      "site_en": "RF Room",
+      "search_example": "VSWR",
+      "tools_example": "dBm換算與雜訊指數",
+      "full_title": "射頻教室｜傳輸線、史密斯圖、S參數與天線的練習題與解析",
+      "scope": "傳輸線與阻抗匹配、S參數與被動元件、雜訊指數與非線性、天線與電波傳播、調變與解調，以及高速傳輸與EMC",
+      "hero": "用三選一測驗學射頻與無線工程",
+      "hero_lead": "從傳輸線與史密斯圖，到雜訊指數、天線與調變，每一題都附有解說。",
+      "tools_lead": "免費的瀏覽器計算工具，可確認dBm與功率的換算、VSWR與反射係數、串接雜訊指數、自由空間路徑損耗等射頻常用的計算。"
     }
   },
   "icon": {
