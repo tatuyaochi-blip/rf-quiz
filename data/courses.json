@@ -29,9 +29,9 @@
       "zh-hant": "無線系統設計"
     },
     "desc": {
-      "ja": "受信機の雑音とひずみ、受信機の構成、フィルタとPLL、変復調とフェージング、回線設計と周波数の選び方から、レーダー、アレーアンテナ、電力増幅器へと進み、無線機の全体を組み立てる考え方を身につけます。",
-      "en": "Move from receiver noise and distortion, receiver architectures, filters and PLLs, modulation and fading, and link budgets and frequency choice on to radar, array antennas and power amplifiers, and learn how to put together a complete radio system.",
-      "zh-hant": "從接收機的雜訊與失真、接收機架構、濾波器與PLL、調變解調與衰落、鏈路預算與頻率的選擇，進而到雷達、陣列天線與功率放大器，學會組裝整部無線電設備的思考方式。"
+      "ja": "受信機の雑音とひずみ、受信機の構成、フィルタとPLL、変復調とフェージング、OFDMとMIMO、電波伝搬、回線設計と周波数の選び方から、レーダー、アレーアンテナ、電力増幅器へと進み、無線機の全体を組み立てる考え方を身につけます。",
+      "en": "Move from receiver noise and distortion, receiver architectures, filters and PLLs, modulation and fading, OFDM and MIMO, radio-wave propagation, and link budgets and frequency choice on to radar, array antennas and power amplifiers, and learn how to put together a complete radio system.",
+      "zh-hant": "從接收機的雜訊與失真、接收機架構、濾波器與PLL、調變解調與衰落、OFDM與MIMO、電波傳播、鏈路預算與頻率的選擇，進而到雷達、陣列天線與功率放大器，學會組裝整部無線電設備的思考方式。"
     },
     "steps": [
       "rf-circuits",
@@ -39,6 +39,8 @@
       "filters-oscillators",
       "modulation",
       "fading",
+      "ofdm-mimo",
+      "propagation",
       "systems",
       "radar",
       "phased-array",
