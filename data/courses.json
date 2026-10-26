@@ -6,12 +6,13 @@
       "en": "RF fundamentals"
     },
     "desc": {
-      "ja": "伝送線路と整合、Sパラメータ、雑音とひずみ、アンテナまで、高周波回路を扱うための基本を順に学びます。RFの仕事や無線の資格の勉強を始める人の最初の一歩におすすめです。",
-      "en": "Work step by step through the basics of handling RF circuits: transmission lines and matching, S-parameters, noise and distortion, and antennas. A recommended first step for anyone starting RF work or studying for a radio license."
+      "ja": "伝送線路と整合、Sパラメータ、整合回路の設計、雑音とひずみ、アンテナ、マイクロ波部品と測定まで、高周波回路を扱うための基本を順に学びます。RFの仕事や無線の資格の勉強を始める人の最初の一歩におすすめです。",
+      "en": "Work step by step through the basics of handling RF circuits: transmission lines and matching, S-parameters, matching network design, noise and distortion, antennas, and microwave components and measurement. A recommended first step for anyone starting RF work or studying for a radio license."
     },
     "steps": [
       "transmission-line",
       "s-params",
+      "matching",
       "rf-circuits",
       "antenna",
       "microwave",
@@ -25,11 +26,12 @@
       "en": "Radio system design"
     },
     "desc": {
-      "ja": "受信機の雑音とひずみ、フィルタとPLL、変復調とフェージング、回線設計と周波数の選び方から、レーダー、アレーアンテナ、電力増幅器へと進み、無線機の全体を組み立てる考え方を身につけます。",
-      "en": "Move from receiver noise and distortion, filters and PLLs, modulation and fading, and link budgets and frequency choice on to radar, array antennas and power amplifiers, and learn how to put together a complete radio system."
+      "ja": "受信機の雑音とひずみ、受信機の構成、フィルタとPLL、変復調とフェージング、回線設計と周波数の選び方から、レーダー、アレーアンテナ、電力増幅器へと進み、無線機の全体を組み立てる考え方を身につけます。",
+      "en": "Move from receiver noise and distortion, receiver architectures, filters and PLLs, modulation and fading, and link budgets and frequency choice on to radar, array antennas and power amplifiers, and learn how to put together a complete radio system."
     },
     "steps": [
       "rf-circuits",
+      "receivers",
       "filters-oscillators",
       "modulation",
       "fading",
