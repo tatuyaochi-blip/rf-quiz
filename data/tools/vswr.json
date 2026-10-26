@@ -121,6 +121,61 @@
           "a": "純抵抗の負荷では VSWR = ZL/Z0 または Z0/ZL のうち1以上のほうになり、100/50 = 2.0 です。25 Ωをつないでも同じく2.0になります。"
         }
       ]
+    },
+    "en": {
+      "nav": "VSWR, reflection coefficient and return loss",
+      "card": "Convert between VSWR, reflection coefficient, return loss and mismatch loss",
+      "title": "VSWR Calculator: Reflection Coefficient, Return Loss, Mismatch Loss and Load Impedance",
+      "description": "Convert between the reflection coefficient magnitude |Γ|, VSWR and return loss (dB), and calculate the mismatch loss and the fractions of power reflected and delivered. The reflection coefficient can also be found from a load impedance R + jX and a characteristic impedance Z0.",
+      "h1": "VSWR, Reflection Coefficient and Return Loss Converter",
+      "lead": "Convert between the values that describe how well an impedance is matched. Edit any of |Γ|, VSWR or return loss and the other fields update; edit the load impedance and everything is recalculated from the reflection coefficient. The defaults are a 75 + j25 Ω load connected to a 50 Ω system.",
+      "in_heading": "Inputs (edit any field)",
+      "z0": "Characteristic impedance Z0 (Ω)",
+      "r": "Load resistance R (Ω)",
+      "x": "Load reactance X (Ω)",
+      "gamma": "Reflection coefficient magnitude |Γ|",
+      "vswr": "VSWR",
+      "rl": "Return loss (dB)",
+      "out_heading": "Results",
+      "angle": "Reflection coefficient phase (when calculated from the load)",
+      "ml": "Mismatch loss",
+      "pr": "Reflected power",
+      "pt": "Power delivered to the load",
+      "note": "Transmission line loss is not included (on a lossy line, the VSWR seen from the input looks smaller than the VSWR at the load). Return loss is expressed as a positive value.",
+      "practice": "Practice transmission line questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Reflection coefficient",
+          "p": "When a load ZL is connected to a line of characteristic impedance Z0 and ZL ≠ Z0, part of the incident wave is reflected. The voltage reflection coefficient is Γ = (ZL − Z0)/(ZL + Z0), and its magnitude |Γ| ranges from 0 (a perfect match) to 1 (an open, a short or a pure reactance). For the default 75 + j25 Ω load on a 50 Ω system, Γ = (25 + j25)/(125 + j25), with |Γ| ≈ 0.277 and a phase of about 33.7°."
+        },
+        {
+          "h": "VSWR and return loss",
+          "p": "When the reflected and incident waves overlap, a standing wave forms on the line. The ratio of maximum to minimum voltage is the VSWR (voltage standing wave ratio), VSWR = (1 + |Γ|)/(1 − |Γ|). Return loss is how much smaller the reflected power is than the incident power, in dB: RL = −20·log10|Γ|. With the defaults, the VSWR is about 1.77 and the return loss about 11.1 dB. Antenna and filter specifications commonly use a VSWR of 1.5 or less (return loss of about 14 dB or more) or 2.0 or less (about 9.5 dB or more)."
+        },
+        {
+          "h": "Mismatch loss",
+          "p": "Reflected power does not reach the load, so the power the load receives is 1 − |Γ|² times the incident power. Expressed in dB, this is the mismatch loss ML = −10·log10(1 − |Γ|²). With the defaults, about 7.7 % is reflected and the mismatch loss is about 0.35 dB. Even at a VSWR of 2.0, only about 11 % is reflected and the loss is only about 0.51 dB, so the effect of the reflected wave on the transmitter, or ripple and group delay, is often more of a problem than the power loss itself."
+        },
+        {
+          "h": "Relation to the Smith chart",
+          "p": "The Smith chart plots the reflection coefficient Γ on the complex plane and overlays scales of normalized impedance. The center of the chart is |Γ| = 0 (a perfect match) and the outer edge is |Γ| = 1; the distance from the center is |Γ| and the angle is the phase of the reflection coefficient. Circles centered on the center are circles of constant VSWR. Following a lossless line from the load toward the generator moves the point clockwise around such a circle, one full turn every half wavelength."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What return loss in dB corresponds to a VSWR of 1.5?",
+          "a": "|Γ| = (1.5 − 1)/(1.5 + 1) = 0.2, so the return loss is −20·log10(0.2) ≈ 13.98 dB. The reflected power is 4 %, and the mismatch loss is about 0.18 dB."
+        },
+        {
+          "q": "Is return loss a negative value?",
+          "a": "By definition it is positive (how small the reflection is), but instruments often display S11 in dB as a negative value (for example, −14 dB), and the two are easily confused. The relationship is S11 (dB) = −return loss."
+        },
+        {
+          "q": "What is the VSWR when a 100 Ω resistor is connected to 50 Ω?",
+          "a": "For a purely resistive load, the VSWR is whichever of ZL/Z0 or Z0/ZL is 1 or greater, so 100/50 = 2.0. Connecting 25 Ω also gives 2.0."
+        }
+      ]
     }
   }
 }

@@ -2,10 +2,12 @@
   {
     "id": "rf-basics",
     "name": {
-      "ja": "高周波の基礎"
+      "ja": "高周波の基礎",
+      "en": "RF fundamentals"
     },
     "desc": {
-      "ja": "伝送線路と整合、Sパラメータ、雑音とひずみ、アンテナまで、高周波回路を扱うための基本を順に学びます。RFの仕事や無線の資格の勉強を始める人の最初の一歩におすすめです。"
+      "ja": "伝送線路と整合、Sパラメータ、雑音とひずみ、アンテナまで、高周波回路を扱うための基本を順に学びます。RFの仕事や無線の資格の勉強を始める人の最初の一歩におすすめです。",
+      "en": "Work step by step through the basics of handling RF circuits: transmission lines and matching, S-parameters, noise and distortion, and antennas. A recommended first step for anyone starting RF work or studying for a radio license."
     },
     "steps": [
       "transmission-line",
@@ -19,10 +21,12 @@
   {
     "id": "radio-system-design",
     "name": {
-      "ja": "無線システム設計"
+      "ja": "無線システム設計",
+      "en": "Radio system design"
     },
     "desc": {
-      "ja": "受信機の雑音とひずみ、フィルタとPLL、変復調、回線設計と周波数の選び方へと進み、無線機の全体を組み立てる考え方を身につけます。"
+      "ja": "受信機の雑音とひずみ、フィルタとPLL、変復調、回線設計と周波数の選び方へと進み、無線機の全体を組み立てる考え方を身につけます。",
+      "en": "Move from receiver noise and distortion through filters and PLLs, modulation and demodulation, to link budgets and frequency choice, and learn how to put together a complete radio."
     },
     "steps": [
       "rf-circuits",

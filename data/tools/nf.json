@@ -139,7 +139,7 @@
       "sections": [
         {
           "h": "雑音指数とフリスの公式",
-          "p": "雑音指数(NF)は、信号が回路を通るときにSNRがどれだけ悪くなるかを表す値で、雑音指数F(真数)を10·log10(F)でdBにしたものです。多段の回路の全体の雑音指数は、真数で F = F1 + (F2 − 1)/G1 + (F3 − 1)/(G1·G2) + … と表されます(フリスの公式)。2段目以降の雑音は、前段までの利得で割られて小さくなるので、1段目の雑音指数と利得が全体をほぼ決めます。既定値では全体のNFは約2.75 dBで、LNAの1.5 dBにミキサ以降の影響が少し加わった値になります。"
+          "p": "雑音指数(NF)は、信号が回路を通るときにSNRがどれだけ悪くなるかを表す値で、雑音因子F(雑音指数の真数)を10·log10(F)でdBにしたものです。多段の回路の全体の雑音指数は、真数で F = F1 + (F2 − 1)/G1 + (F3 − 1)/(G1·G2) + … と表されます(フリスの公式)。2段目以降の雑音は、前段までの利得で割られて小さくなるので、1段目の雑音指数と利得が全体をほぼ決めます。既定値では全体のNFは約2.75 dBで、LNAの1.5 dBにミキサ以降の影響が少し加わった値になります。"
         },
         {
           "h": "LNAを最初に置く理由",
@@ -157,7 +157,7 @@
       "faq": [
         {
           "q": "雑音指数と雑音温度の関係は?",
-          "a": "等価雑音温度は Te = 290·(F − 1) [K] で、Fは真数の雑音指数です。NF 3 dB(F ≈ 2)は約290 K、NF 1 dBは約75 Kです。衛星通信のように非常に低い雑音を扱う分野では、雑音温度で表すことが多くなります。"
+          "a": "等価雑音温度は Te = 290·(F − 1) [K] で、Fは雑音因子(雑音指数の真数)です。NF 3 dB(F ≈ 2)は約290 K、NF 1 dBは約75 Kです。衛星通信のように非常に低い雑音を扱う分野では、雑音温度で表すことが多くなります。"
         },
         {
           "q": "受動素子の雑音指数は?",
@@ -166,6 +166,71 @@
         {
           "q": "−174 dBm/Hz はどこから来ますか?",
           "a": "熱雑音の電力 kTB で、k = 1.38 × 10⁻²³ J/K、T = 290 K、B = 1 Hz とすると約4.0 × 10⁻²¹ W、つまり約 −174 dBm です。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Cascaded noise figure calculator",
+      "card": "Calculate cascaded noise figure, gain, IIP3 and receiver sensitivity with the Friis formula",
+      "title": "Cascaded Noise Figure (NF) Calculator: Friis Formula, IIP3 and Receiver Sensitivity",
+      "description": "For a three-stage receiver such as LNA, mixer and IF amplifier, calculate the overall noise figure and noise temperature, total gain and input-referred IIP3 from each stage's gain, noise figure and IIP3 using the Friis formula, and find the receiver sensitivity from the bandwidth and required SNR.",
+      "h1": "Cascaded Noise Figure Calculator",
+      "lead": "Enter the gain, noise figure (NF) and IIP3 of each receiver stage to calculate the performance of the whole chain. The defaults are three stages — an LNA (15 dB gain, 1.5 dB NF), a mixer (7 dB conversion loss, 7 dB NF) and an IF amplifier (20 dB gain, 5 dB NF) — with a 20 MHz bandwidth and a required SNR of 10 dB. For an unused stage, set the gain to 0 dB, the NF to 0 dB and the IIP3 to a large value (such as 99 dBm).",
+      "in_heading": "Inputs (stage 1 is on the antenna side)",
+      "g1": "Stage 1 gain G1 (dB)",
+      "nf1": "Stage 1 NF1 (dB)",
+      "ip1": "Stage 1 IIP3 (dBm)",
+      "g2": "Stage 2 gain G2 (dB)",
+      "nf2": "Stage 2 NF2 (dB)",
+      "ip2": "Stage 2 IIP3 (dBm)",
+      "g3": "Stage 3 gain G3 (dB)",
+      "nf3": "Stage 3 NF3 (dB)",
+      "ip3": "Stage 3 IIP3 (dBm)",
+      "bw": "Bandwidth B (MHz)",
+      "snr": "Required SNR (dB)",
+      "out_heading": "Results",
+      "nf": "Overall noise figure NF",
+      "te": "Equivalent noise temperature Te",
+      "gain": "Total gain",
+      "ip_heading": "Linearity",
+      "iip3": "Input-referred IIP3",
+      "oip3": "Output-referred OIP3",
+      "sens_heading": "Receiver sensitivity estimate (reference temperature 290 K)",
+      "floor": "Noise power (input-referred)",
+      "sens": "Receiver sensitivity",
+      "note": "Each stage is assumed to be impedance-matched. Enter lossy passive components (cables, filters, mixer conversion loss) with a negative gain and an NF equal to the loss in dB. The IIP3 combination is an approximation for the worst case, in which the distortion from each stage adds in phase.",
+      "practice": "Practice RF circuit questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Noise figure and the Friis formula",
+          "p": "Noise figure (NF) expresses how much the SNR worsens as a signal passes through a circuit; it is the noise factor F (a linear value) converted to dB as 10·log10(F). The overall noise factor of a multistage circuit is F = F1 + (F2 − 1)/G1 + (F3 − 1)/(G1·G2) + … in linear terms (the Friis formula). Noise from the second stage onward is divided by the gain of the preceding stages and becomes small, so the noise figure and gain of the first stage largely set the total. With the defaults, the overall NF is about 2.75 dB: the LNA's 1.5 dB plus a small contribution from the mixer and later stages."
+        },
+        {
+          "h": "Why the LNA goes first",
+          "p": "A low-noise amplifier (LNA) is placed at the front of a receiver so that, by the Friis formula, it makes the noise of later stages small. Conversely, any cable or filter loss between the antenna and the LNA adds its dB value directly to the NF. For example, placing an LNA with a 1.5 dB NF after a cable with 2 dB of loss gives an overall NF of about 3.5 dB. In receivers where sensitivity matters, the LNA is placed right at the antenna."
+        },
+        {
+          "h": "Calculating receiver sensitivity",
+          "p": "The thermal noise power of a resistor is kTB, about −174 dBm per hertz at the reference temperature of 290 K. The receiver's input-referred noise power is −174 + 10·log10(B) + NF [dBm], and adding the SNR needed for demodulation gives an estimate of the receiver sensitivity. With the default 20 MHz bandwidth (73 dB), an NF of about 2.75 dB and an SNR of 10 dB, the noise power is about −98.2 dBm and the sensitivity about −88.2 dBm. Halving the bandwidth improves the sensitivity by about 3 dB."
+        },
+        {
+          "h": "Cascading IIP3",
+          "p": "The third-order intercept point (IP3) is a measure of linearity that expresses the size of third-order intermodulation distortion. The input-referred IIP3 combines, in linear mW, as 1/IIP3 = 1/IIP3₁ + G1/IIP3₂ + G1G2/IIP3₃ + …, so later stages become more demanding by the gain ahead of them. Opposite to noise, the higher the gain of earlier stages, the more the linearity of later stages degrades the total. With the defaults, the input-referred IIP3 is about −1.26 dBm; balancing low noise against high linearity is the key to receiver design."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How are noise figure and noise temperature related?",
+          "a": "The equivalent noise temperature is Te = 290·(F − 1) [K], where F is the noise factor (the noise figure as a linear value). An NF of 3 dB (F ≈ 2) is about 290 K, and an NF of 1 dB about 75 K. In fields that deal with very low noise, such as satellite communications, noise temperature is used more often."
+        },
+        {
+          "q": "What is the noise figure of a passive component?",
+          "a": "At an ambient temperature of 290 K, a passive component with a loss of L (dB) has a noise figure equal to L (dB). Enter a filter with 3 dB of loss as an NF of 3 dB and a gain of −3 dB."
+        },
+        {
+          "q": "Where does −174 dBm/Hz come from?",
+          "a": "It is the thermal noise power kTB: with k = 1.38 × 10⁻²³ J/K, T = 290 K and B = 1 Hz, it is about 4.0 × 10⁻²¹ W, or about −174 dBm."
         }
       ]
     }

@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "RF and Wireless Engineering",
+    "groups": { "lines": "Transmission lines and networks", "circuits": "RF circuits", "radio": "Radio waves and antennas", "systems": "High-speed signaling and systems" }
+  }
+}

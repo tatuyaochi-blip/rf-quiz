@@ -109,7 +109,7 @@
         },
         {
           "h": "フリスの伝達公式",
-          "p": "受信電力は、送信電力にアンテナ利得を足し、伝搬損失を引いて、Pr = Pt + Gt + Gr − FSPL [dB] と求まります(フリスの伝達公式をdBで書いたもの)。既定値では、20 + 2 + 2 − 100.05 − 3 ≈ −79.05 dBm です。周波数が高いとFSPLは大きくなりますが、同じ大きさのアンテナなら利得も周波数の2乗に比例して大きくなるので、パラボラアンテナを使う回線では高い周波数が不利になるとは限りません。"
+          "p": "受信電力は、送信電力にアンテナ利得を足し、伝搬損失とその他の損失 L(ケーブルなど)を引いて、Pr = Pt + Gt + Gr − FSPL − L [dB] と求まります(フリスの伝達公式をdBで書いたもの)。既定値では、20 + 2 + 2 − 100.05 − 3 ≈ −79.05 dBm です。周波数が高いとFSPLは大きくなりますが、同じ大きさのアンテナなら利得も周波数の2乗に比例して大きくなるので、パラボラアンテナを使う回線では高い周波数が不利になるとは限りません。"
         },
         {
           "h": "リンクマージン",
@@ -132,6 +132,64 @@
         {
           "q": "dBi と dBd の違いは?",
           "a": "dBiは等方性アンテナ、dBdは半波長ダイポールアンテナを基準にした利得です。半波長ダイポールの利得は約2.15 dBiなので、dBi = dBd + 2.15 です。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Free-space path loss and link budget",
+      "card": "Calculate free-space path loss, received power and link margin from frequency and distance",
+      "title": "Free-Space Path Loss (FSPL) Calculator: Friis Transmission Equation and Link Budget",
+      "description": "Calculate free-space path loss (FSPL) from frequency and distance, find the received power from transmit power, antenna gains and other losses with the Friis transmission equation, and give the link margin against the receiver sensitivity. The first Fresnel zone radius is also shown.",
+      "h1": "Free-Space Path Loss and Link Budget Calculator",
+      "lead": "Estimate the received power and the margin (link margin) for a radio link between two points with line of sight. The defaults are two stations 1 km apart at 2.4 GHz, communicating with 20 dBm of transmit power and 2 dBi antennas at each end, with 3 dB of total cable and other losses and a receiver sensitivity of −90 dBm.",
+      "in_heading": "Inputs",
+      "f": "Frequency f (MHz)",
+      "d": "Distance d (km)",
+      "pt": "Transmit power Pt (dBm)",
+      "gt": "Transmit antenna gain Gt (dBi)",
+      "gr": "Receive antenna gain Gr (dBi)",
+      "loss": "Total other losses (dB)",
+      "sens": "Receiver sensitivity (dBm)",
+      "out_heading": "Results",
+      "lambda": "Wavelength λ",
+      "fspl": "Free-space path loss FSPL",
+      "fresnel": "First Fresnel zone radius (at midpoint)",
+      "link_heading": "Link budget",
+      "pr": "Received power Pr",
+      "margin": "Link margin",
+      "note": "These are values for free space with line of sight and no obstacles or ground reflections. Real links often allow a margin of 10–20 dB or more for blockage and diffraction by buildings and terrain, fading from multipath, and attenuation by rain and the atmosphere (larger at high frequencies).",
+      "practice": "Practice antenna and propagation questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Free-space path loss",
+          "p": "As radio waves travel through free space, their energy spreads out spherically, so the power density falls in proportion to the square of the distance. The loss between isotropic antennas is called the free-space path loss, FSPL = 20·log10(4πd/λ). In practical form, FSPL[dB] = 20·log10(d[km]) + 20·log10(f[MHz]) + 32.45. At the default 2.4 GHz and 1 km it is about 100.05 dB. It increases by 6 dB each time the distance doubles, and also by 6 dB each time the frequency doubles."
+        },
+        {
+          "h": "The Friis transmission equation",
+          "p": "The received power is found by adding the antenna gains to the transmit power and subtracting the propagation loss: Pr = Pt + Gt + Gr − FSPL [dB] (the Friis transmission equation written in dB), and the other losses are then subtracted. With the defaults, 20 + 2 + 2 − 100.05 − 3 ≈ −79.05 dBm. FSPL grows at higher frequencies, but for antennas of the same size the gain also grows with the square of frequency, so higher frequencies are not necessarily a disadvantage on links using parabolic antennas."
+        },
+        {
+          "h": "Link margin",
+          "p": "How far the received power exceeds the receiver sensitivity is the link margin; with the defaults it is −79.05 − (−90) ≈ 10.9 dB. The margin is an allowance for fading, blockage and equipment variation, and outdoor fixed links sometimes take 20–30 dB or more. When the margin is insufficient, options include raising the transmit power or antenna gain, reducing cable loss, and narrowing the bandwidth to improve sensitivity."
+        },
+        {
+          "h": "Fresnel zone",
+          "p": "Even with line of sight, if an obstacle enters the ellipsoidal region around the straight line between transmitter and receiver (the first Fresnel zone), diffraction increases the loss. The radius of the first Fresnel zone at the midpoint is r = √(λd/4); with the defaults it is about 5.6 m. It is generally held that keeping about 60 % or more of this radius clear of obstacles gives propagation close to free space. On long links, this value is used when deciding antenna heights."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Where does the 32.45 in the FSPL formula come from?",
+          "a": "Substituting λ = c/f into 20·log10(4πd/λ) and expressing d in km and f in MHz leaves the constant term 20·log10(4π × 10³ × 10⁶ / c) ≈ 32.45. With d in m and f in MHz, it becomes −27.55."
+        },
+        {
+          "q": "Why don't higher frequencies reach as far?",
+          "a": "In the FSPL formula, the loss is larger at higher frequencies because the effective aperture of an isotropic antenna shrinks in proportion to the square of the wavelength, so less power is captured. The radio wave itself does not weaken any more in space. In practice, higher frequencies also diffract less and are more easily attenuated by rain and the atmosphere, which also limits their reach."
+        },
+        {
+          "q": "What is the difference between dBi and dBd?",
+          "a": "dBi is gain relative to an isotropic antenna, and dBd is gain relative to a half-wave dipole. A half-wave dipole has a gain of about 2.15 dBi, so dBi = dBd + 2.15."
         }
       ]
     }
