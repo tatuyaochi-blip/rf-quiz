@@ -1,0 +1,24 @@
+[
+  {
+    "id": "main",
+    "name": "高周波・無線工学",
+    "groups": [
+      {
+        "id": "lines",
+        "name": "伝送線路と回路網"
+      },
+      {
+        "id": "circuits",
+        "name": "高周波回路"
+      },
+      {
+        "id": "radio",
+        "name": "電波とアンテナ"
+      },
+      {
+        "id": "systems",
+        "name": "高速伝送とシステム"
+      }
+    ]
+  }
+]

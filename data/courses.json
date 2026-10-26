@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rf-basics",
+    "name": {
+      "ja": "高周波の基礎"
+    },
+    "desc": {
+      "ja": "伝送線路と整合、Sパラメータ、雑音とひずみ、アンテナまで、高周波回路を扱うための基本を順に学びます。RFの仕事や無線の資格の勉強を始める人の最初の一歩におすすめです。"
+    },
+    "steps": [
+      "transmission-line",
+      "s-params",
+      "rf-circuits",
+      "antenna"
+    ]
+  },
+  {
+    "id": "radio-system-design",
+    "name": {
+      "ja": "無線システム設計"
+    },
+    "desc": {
+      "ja": "受信機の雑音とひずみ、フィルタとPLL、変復調、回線設計と周波数の選び方へと進み、無線機の全体を組み立てる考え方を身につけます。"
+    },
+    "steps": [
+      "rf-circuits",
+      "filters-oscillators",
+      "modulation",
+      "systems"
+    ]
+  }
+]

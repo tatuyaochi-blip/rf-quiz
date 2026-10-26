@@ -1,0 +1,50 @@
+{
+  "baseUrl": "https://tatuyaochi-blip.github.io/rf-quiz/",
+  "siteName": {
+    "ja": "高周波教室",
+    "en": "RF Room"
+  },
+  "languages": [
+    {
+      "code": "ja",
+      "path": "",
+      "htmlLang": "ja",
+      "locale": "ja-JP",
+      "label": "日本語"
+    }
+  ],
+  "mainLang": "ja",
+  "cname": null,
+  "noindex": true,
+  "onlyReviewed": false,
+  "contactFormUrl": {
+    "ja": "https://forms.gle/VZFqdvB4m1fLpBEg7",
+    "en": "https://forms.gle/2Hmk3GZD2oU8z6b98"
+  },
+  "reportFormUrl": null,
+  "adPlaceholders": false,
+  "adsenseClient": null,
+  "adsenseSlots": null,
+  "amazonTag": null,
+  "amazonDomain": null,
+  "ga4Id": null,
+  "brand": {
+    "ja": {
+      "search_example": "VSWR",
+      "tools_example": "dBm換算や雑音指数",
+      "subject": "高周波・無線工学",
+      "site": "高周波教室",
+      "site_en": "RF Room",
+      "full_title": "高周波教室｜伝送線路・スミスチャート・Sパラメータ・アンテナの練習問題と解説",
+      "scope": "伝送線路とインピーダンス整合、Sパラメータと受動素子、雑音指数と非線形性、アンテナと電波伝搬、変復調、高速伝送とEMC",
+      "hero": "高周波・無線工学を、3択クイズで学ぶ",
+      "hero_lead": "伝送線路とスミスチャートから、雑音指数・アンテナ・変復調まで。すべての問題に解説が付いています。",
+      "tools_lead": "dBmと電力の換算、VSWRと反射係数、雑音指数のカスケード、自由空間伝搬損失など、高周波でよく使う計算をブラウザ上で確かめられる無料のツールです。"
+    }
+  },
+  "icon": {
+    "c1": "#a3218f",
+    "c2": "#1d64c8",
+    "glyph": "wave"
+  }
+}
