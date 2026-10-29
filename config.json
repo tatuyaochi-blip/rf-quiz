@@ -92,7 +92,7 @@
       "search_example": "VSWR",
       "tools_example": "dBm 환산과 잡음 지수",
       "full_title": "고주파 교실 | 전송선로·스미스 차트·S 파라미터·안테나 연습 문제와 해설",
-      "scope": "전송선로와 임피던스 정합, S 파라미터와 수동 소자, 잡음 지수와 비선형성, 안테나와 전파 전파, 변복조, 고속 신호 전송과 EMC",
+      "scope": "전송선로와 임피던스 정합, S 파라미터와 수동 소자, 잡음 지수와 비선형성, 안테나와 전파 전달, 변복조, 고속 신호 전송과 EMC",
       "hero": "3지선다 퀴즈로 배우는 고주파·무선 공학",
       "hero_lead": "전송선로와 스미스 차트부터 잡음 지수, 안테나, 변복조까지. 모든 문제에 해설이 있습니다.",
       "tools_lead": "dBm과 전력 환산, VSWR과 반사 계수, 잡음 지수의 캐스케이드 계산, 자유 공간 경로 손실 등 고주파에서 자주 쓰는 계산을 브라우저에서 바로 확인할 수 있는 무료 도구입니다."
@@ -103,7 +103,7 @@
       "site": "Lernraum Hochfrequenztechnik",
       "site_en": "RF Room",
       "search_example": "VSWR",
-      "tools_example": "dBm-Umrechnungen und Rauschzahlen",
+      "tools_example": "dBm-Pegel und Rauschzahlen",
       "full_title": "Lernraum Hochfrequenztechnik | Übungsfragen zu Leitungen, Smith-Diagramm, S-Parametern und Antennen",
       "scope": "Leitungen und Impedanzanpassung, S-Parameter und passive Bauelemente, Rauschzahl und Nichtlinearität, Antennen und Wellenausbreitung, Modulation sowie schnelle Signalübertragung und EMV",
       "hero": "Hochfrequenz- und Funktechnik lernen – mit kurzen Quizfragen",
